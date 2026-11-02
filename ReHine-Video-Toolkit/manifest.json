@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ReHine Video Toolkit",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "ReHine video toolkit dengan pemrosesan MP4 lokal dan analisis metadata serta stream TikTok.",
   "permissions": [],
   "host_permissions": [
