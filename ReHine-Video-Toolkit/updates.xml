@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
-  <app appid="eoaapanifpjcnajlehffbmcfiaiikgdm">
-    <updatecheck
-      codebase="https://github.com/5b307381861d9a4c51b0e881eef973d3/alat-pribadi/releases/download/v1.0.2/ReHine-Video-Toolkit-1.0.2.crx"
-      version="1.0.2" />
-  </app>
-</gupdate>
