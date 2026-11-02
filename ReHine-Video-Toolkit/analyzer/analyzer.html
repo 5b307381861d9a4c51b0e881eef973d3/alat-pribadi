@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<title>ReHine CuteFish Analyzer</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:24px 14px 40px;background:radial-gradient(circle at 100% 0,#1e3a5f 0,#101827 48%,#0b1220 100%);color:#f1f5f9;font:14px system-ui,sans-serif}.wrap{width:min(100%,620px);margin:0 auto}.intro{margin:0 0 16px;color:#a9b9ce;line-height:1.6}.rh-card{width:100%;min-height:160px}.url-box{margin:0 0 12px}.url-box label{display:block;margin:0 0 7px;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:1px}.url-box input{width:100%;padding:14px;border:1px solid #405675;border-radius:12px;background:#0b1424;color:#f8fafc;font:13px system-ui;outline:none}.url-box input:focus{border-color:#5eead4;box-shadow:0 0 0 3px #2dd4bf20}.hint{margin:7px 2px 0;color:#8294ad;font-size:11px;line-height:1.5}#analyzer{width:100%}
+</style>
+</head>
+<body>
+<main class="wrap">
+<p class="intro">Tempel tautan video TikTok publik, lalu tekan tombol <b>ANALISIS VIDEO</b> di bawah kolom. Tekan Enter juga bisa untuk mulai menganalisis.</p>
+<div class="url-box">
+<label for="tiktok-url">LINK VIDEO TIKTOK</label>
+<input id="tiktok-url" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="https://www.tiktok.com/@username/video/123456789..." required>
+<p class="hint">Gunakan tautan video, bukan tautan profil atau TikTok Studio. Video privat atau sudah dihapus mungkin tidak dapat dianalisis.</p>
+</div>
+<div id="analyzer"></div>
+</main>
+<script src="cutefish-analyzer.js"></script>
+<script src="analyzer-page.js"></script>
+</body>
+</html>

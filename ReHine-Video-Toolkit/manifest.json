@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "ReHine Video Toolkit",
+  "version": "1.0.0",
+  "description": "ReHine video toolkit dengan pemrosesan MP4 lokal dan analisis metadata serta stream TikTok.",
+  "permissions": [],
+  "host_permissions": [
+    "https://www.tiktok.com/*",
+    "https://*.tiktokcdn.com/*",
+    "https://*.tiktokv.com/*",
+    "https://*.byteoversea.com/*",
+    "https://*.ibytedtos.com/*",
+    "https://*.muscdn.com/*",
+    "https://*.tiktokcdn-us.com/*",
+    "https://*.tiktok.com/*",
+    "https://cutefish.my.id/*"
+  ],
+  "action": {
+    "default_title": "ReHine",
+    "default_popup": "ui/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.tiktok.com/*"
+      ],
+      "js": [
+        "engine/engine-core.js",
+        "analyzer/cutefish-analyzer.js",
+        "integration/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "engine/engine.html",
+        "engine/engine-core.js",
+        "engine/engine-ui.js",
+        "engine/media-worker.js"
+      ],
+      "matches": [
+        "https://www.tiktok.com/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "analyzer/api-worker.js"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl0x3A9BvPLYeSssGkk3hH9yXIMBK/ShqYWy+Sa4eaHIdFT4zHWcdIAHGUrWy3K1aZ2ZSoQaM/skwSForeh0ML0RKDcQ+9q448hnpdhd2LKL1ak5Ezdfa9iOf5i4MMcN76i2zb9xUMmHhNf4p+vAy403ULbHabzRzP55sjuzUkK/FD4U8nju2vhudOTPCzonqUCLl2nmw+ma0nAOmTccpKAxPGG/vn9v3861btVVbTRLHu98EVC6wvjk2jizHNRIfa2Kh2MlWtQTm14eLdHBlzTCVqY1wTvRq9kKPZx+BHNcVXZwmqPZt86r2Pw2TohYSCfFunnEhnDPhF4FBWMInpwIDAQAB"
+}
