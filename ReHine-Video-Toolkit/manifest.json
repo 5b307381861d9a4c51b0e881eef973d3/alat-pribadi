@@ -13,7 +13,8 @@
     "https://*.muscdn.com/*",
     "https://*.tiktokcdn-us.com/*",
     "https://*.tiktok.com/*",
-    "https://cutefish.my.id/*"
+    "https://cutefish.my.id/*",
+    "https://raw.githubusercontent.com/*"
   ],
   "action": {
     "default_title": "ReHine",
