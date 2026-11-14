@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RE:HINE UPLOADER</title>
+<link rel="stylesheet" href="../../styles/style.css">
+<script src="../shared/theme.js"></script>
+</head>
+<body class="popup">
+<main class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">RE</div>
+      <div>
+        <div class="brand-title">RE:HINE UPLOADER</div>
+        <div class="brand-sub" id="subtitle"></div>
+      </div>
+    </div>
+    <div class="lang-switch" aria-label="Language">
+      <button id="langEn" class="lang">EN</button><button id="langId" class="lang">ID</button>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- QUICK ACTIONS DASHBOARD -->
+  <section class="menu">
+    <div class="section-label menu-label"><span id="menuLabel"></span></div>
+
+    <button id="launchBtn" class="launch launch-main" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 4 4.9"/>
+      </svg>
+      <span id="launchText"></span>
+    </button>
+
+    <div class="quick-grid">
+      <button id="waBtn" class="launch launch-wa launch-sq" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/>
+          <path d="M9 9c.3 2 2 3.8 4.5 4.8l1.2-1.2 1.8.9c-.3 1-1.2 1.6-2.3 1.5C10.9 14.6 8.4 12 8 9.8c-.1-1 .5-1.8 1-1.8z"/>
+        </svg>
+        <span id="waText"></span>
+      </button>
+      <button id="statsBtn" class="launch launch-stats launch-sq" type="button" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <span id="statsText"></span>
+      </button>
+    </div>
+
+    <section id="statsPanel" class="stats" hidden>
+      <div class="stats-head"><span id="statsSub"></span></div>
+      <form id="statsForm" class="stats-form">
+        <input id="statsUrl" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://www.tiktok.com/@user/video/...">
+        <div class="stats-buttons">
+          <button id="statsPaste" type="button" class="ghost"></button>
+          <button id="statsClear" type="button" class="ghost"></button>
+          <button id="statsScan" type="submit"></button>
+        </div>
+      </form>
+      <div id="statsMsg" class="stats-msg" role="status"></div>
+      <div id="statsResult" hidden></div>
+    </section>
+  </section>
+
+  <!-- KARTU: PENGATURAN UPLOADER -->
+  <section class="card" id="ctrlCard">
+    <div class="card-head">
+      <div class="card-title" id="ctrlTitle"></div>
+      <button id="uploaderBtn" class="uptoggle action-toggle" type="button" aria-pressed="true">
+        <span id="uploaderText"></span>
+        <span class="sw"><i></i></span>
+      </button>
+    </div>
+
+    <div class="card-body" id="modeBody">
+      <!-- MODE patch: hanya berlaku bila saklar UPLOADER menyala -->
+      <div class="mode-row" id="modeRow">
+        <div class="mode-label"><span id="modeLabel"></span> <span id="modeNeed"></span></div>
+        <div class="seg" id="modeSeg" role="radiogroup">
+          <button type="button" role="radio" data-mode="standar">Standar</button>
+          <button type="button" role="radio" data-mode="high">High</button>
+          <button type="button" role="radio" data-mode="custom" id="segCustom">Custom (Beta)</button>
+        </div>
+        <div class="mode-desc" id="hint" role="note"></div>
+      </div>
+      <!-- Custom: Fake Sample Size (hanya tampil saat MODE = Custom) -->
+      <div class="mode-row fake-row" id="fakeRow" hidden>
+        <label class="mode-label" for="fakeRange"><span id="fakeLabel">FAKE SAMPLE SIZE</span> <span class="fake-val"><b id="fakeVal">6</b> <span id="fakeUnit">bytes</span></span></label>
+        <input type="range" id="fakeRange" min="6" max="60" step="1" value="6">
+      </div>
+    </div>
+
+    <div class="desc-sec" id="descSec">
+      <button id="descBtn" class="trow" type="button" aria-pressed="false">
+        <span class="tlabel" id="descBtnText"></span>
+        <span class="sw"><i></i></span>
+      </button>
+      <div class="mode-row desc-box" id="descRow" hidden>
+        <div class="desc-head">
+          <button id="descClear" class="mini" type="button"></button>
+          <span class="fake-val desc-count"><b id="descCount">0</b>/2200</span>
+        </div>
+        <textarea id="descText" rows="4" maxlength="2200" spellcheck="false"></textarea>
+      </div>
+      <button id="tagsBtn" class="trow" type="button" aria-pressed="false">
+        <span class="tlabel" id="tagsText"></span>
+        <span class="sw"><i></i></span>
+      </button>
+      <button id="captionBtn" class="trow" type="button" aria-pressed="true">
+        <span class="tlabel" id="captionText"></span>
+        <span class="sw"><i></i></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="themes">
+    <div class="section-label"><span id="themeLabel"></span><i></i></div>
+    <div class="theme-row" id="themeRow" role="radiogroup"></div>
+  </section>
+
+  <section class="updater">
+    <div class="section-label"><span id="updateLabel"></span><i></i></div>
+    <div class="update-bar">
+      <div class="update-status" id="updateStatus" role="status"></div>
+      <button id="checkUpdateBtn" class="ubtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg>
+        <span id="checkUpdateText"></span>
+      </button>
+      <button id="downloadUpdateBtn" class="ubtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        <span id="downloadUpdateText"></span>
+      </button>
+    </div>
+  </section>
+  <footer class="foot"><span>RE:HINE</span><i></i><span id="footText">OFFICIAL</span></footer>
+</main>
+<script src="../../background/desktop-rule.js"></script>
+<script src="popup.js"></script>
+<script src="../../background/api-headers.js"></script>
+<script src="../shared/tiktok-stats.js"></script>
+<script src="../shared/updater.js"></script>
+</body>
+</html>

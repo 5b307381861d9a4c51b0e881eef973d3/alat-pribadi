@@ -1,0 +1,103 @@
+{
+  "manifest_version": 3,
+  "name": "RE:HINE Uploader",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl0x3A9BvPLYeSssGkk3hH9yXIMBK/ShqYWy+Sa4eaHIdFT4zHWcdIAHGUrWy3K1aZ2ZSoQaM/skwSForeh0ML0RKDcQ+9q448hnpdhd2LKL1ak5Ezdfa9iOf5i4MMcN76i2zb9xUMmHhNf4p+vAy403ULbHabzRzP55sjuzUkK/FD4U8nju2vhudOTPCzonqUCLl2nmw+ma0nAOmTccpKAxPGG/vn9v3861btVVbTRLHu98EVC6wvjk2jizHNRIfa2Kh2MlWtQTm14eLdHBlzTCVqY1wTvRq9kKPZx+BHNcVXZwmqPZt86r2Pw2TohYSCfFunnEhnDPhF4FBWMInpwIDAQAB",
+  "version": "1.0.44",
+  "description": "RE:HINE Uploader: upload langsung ke TikTok Studio (post Private, caption hashtag + tanda tangan, status badge). Dengan MODE patch (SL/SR Audio, Header) sebelum video dikirim ke TikTok.",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "RE:HINE Uploader",
+    "default_popup": "ui/popup/popup.html"
+  },
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "clipboardRead"
+  ],
+  "host_permissions": [
+    "https://*.tiktok.com/*",
+    "https://cutefish.my.id/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/main-world/desktop-mode.js",
+        "content/main-world/caption-signature-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/main-world/publish-request-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/main-world/video-url-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/isolated/status-badge.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "core/i18n-errors.js",
+        "core/verify.js",
+        "core/patch-standard.js",
+        "core/patch-compressbase.js",
+        "core/modes.js",
+        "content/isolated/video-meta.js",
+        "content/isolated/upload-card.js"
+      ],
+      "css": [
+        "styles/upload-card.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bg.mp4"
+      ],
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ]
+    }
+  ]
+}

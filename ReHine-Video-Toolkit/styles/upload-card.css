@@ -1,0 +1,35 @@
+/* RE:HINE minimal upload card */
+.rehine-zone{position:relative!important;overflow:hidden!important;min-height:300px!important;box-sizing:border-box!important;border:1px solid #e6e1d6!important;border-radius:16px!important;background:#f6f3ec!important}
+/* clip-path instead of display:none so TikTok's React tree keeps working */
+.rehine-zone>*:not(.rehine-overlay):not(input[type="file"]){clip-path:inset(100%)!important;position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;overflow:hidden!important;pointer-events:none!important}
+.rehine-zone.rehine-drag{border-color:#1f1d1a!important}
+.rehine-overlay{position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;border-radius:inherit;background:#f6f3ec;color-scheme:only light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.rehine-bgvideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;border-radius:inherit}
+.rehine-bgdim{position:absolute;inset:0;background:rgba(0,0,0,.28);pointer-events:none;border-radius:inherit}
+
+.rehine-card{position:relative;z-index:14;width:min(380px,calc(100% - 32px));box-sizing:border-box;padding:16px 18px;background:rgba(255,255,255,.94);border:1px solid #e6e1d6;border-radius:14px;color:#1f1d1a;box-shadow:0 10px 30px rgba(0,0,0,.10)}
+.rehine-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.rehine-head b{font:800 12px/1 -apple-system,sans-serif;letter-spacing:1.6px}
+.rehine-state{font:600 10.5px/1 -apple-system,sans-serif;color:#8b8579}
+.rehine-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.rehine-chips i{font:600 10px/1 -apple-system,sans-serif;font-style:normal;padding:5px 8px;border-radius:999px;border:1px solid #e1dccf;color:#9a9486;transition:all .2s}
+.rehine-chips i.on{background:#FE2B54;border-color:#FE2B54;color:#fff}
+.rehine-btn{display:block;width:100%;padding:12px 0;border:0;border-radius:10px;background:linear-gradient(180deg,#ff4d70,#FE2B54)!important;color:#fff!important;box-shadow:0 4px 14px rgba(254,43,84,.40),inset 0 0 0 1px rgba(255,255,255,.22);font:700 12.5px/1 -apple-system,sans-serif;cursor:pointer}
+.rehine-btn:active{transform:scale(.98)}
+.rehine-card.busy .rehine-btn{opacity:.55;pointer-events:none}
+.rehine-file{display:none;margin-top:12px;font:600 11px/1.2 -apple-system,sans-serif;color:#4a463f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rehine-grid{display:none;grid-template-columns:repeat(3,1fr);gap:8px 12px;margin-top:10px}
+.rehine-grid .wide{grid-column:span 2}
+.rehine-grid div span{display:block;font:600 9px/1 -apple-system,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#a29c8e;margin-bottom:3px}
+.rehine-grid div b{display:block;font:700 12px/1.2 -apple-system,sans-serif;color:#1f1d1a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rehine-prog{display:none;align-items:center;gap:10px;margin-top:12px}
+.rehine-track{flex:1;height:4px;border-radius:4px;background:#ebe6da;overflow:hidden}
+.rehine-track i{display:block;height:100%;width:0;background:#FE2B54;border-radius:4px}
+.rehine-pct{min-width:34px;text-align:right;font:700 11px/1 -apple-system,sans-serif;font-variant-numeric:tabular-nums}
+.rehine-card.has-file .rehine-file,.rehine-card.has-file .rehine-prog{display:flex}
+.rehine-card.has-file .rehine-file{display:block}
+.rehine-card.has-file .rehine-grid{display:grid}
+.rehine-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:2147483647;max-width:88vw;padding:9px 14px;border-radius:10px;background:#26231f;color:#fdfaf3;font:600 12px/1.35 -apple-system,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none}
+
+.rehine-prompt{margin:2px 0 10px;text-align:center;color:#4a463f;font:700 11px/1.3 -apple-system,sans-serif;letter-spacing:.8px}
+.rehine-card.has-file .rehine-prompt{display:none}
