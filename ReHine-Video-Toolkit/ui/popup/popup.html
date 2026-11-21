@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RE:HINE UPLOADER</title>
+<link rel="stylesheet" href="../../styles/style.css">
+<link rel="stylesheet" href="../../styles/pro.css">
+<script src="../shared/theme.js"></script>
+</head>
+<body class="popup">
+<main class="app-shell">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-logo" viewBox="0 0 64 64" aria-hidden="true">
+        <path class="lg-r" fill-rule="evenodd" d="M6 56 L17 10 H41 C52 10 59 16 59 25.5 C59 34 53 39.5 45 40.5 L52 56 H39 L33 41 H28 L24 56 Z M30 21 L27 31 H39 C42.5 31 45 29 45 26 C45 23 42.5 21 39 21 Z"/>
+        <path class="lg-p" d="M10 40 L27 29 L27 51 Z" transform="translate(7 -4)"/>
+      </svg>
+      <i class="brand-sep" aria-hidden="true"></i>
+      <div class="brand-text">
+        <div class="brand-title">RE:<b>HINE</b></div>
+        <div class="brand-word">UPLOADER</div>
+      </div>
+    </div>
+    <div class="head-right">
+      <div class="lang-wrap">
+        <button id="langBtn" class="theme-btn lang-btn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="globe"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>
+          <span id="langBtnText"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>
+        </button>
+      </div>
+      <button id="themeBtn" class="theme-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="themePop">
+        <span class="theme-dot theme-dot-mini" id="themeBtnSw"></span>
+        <span id="themeBtnText"></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="brand-sub" id="subtitle"></div>
+    <div class="theme-pop" id="themePop" hidden>
+      <div class="theme-grid" id="themeRow" role="radiogroup"></div>
+    </div>
+  </header>
+
+  
+  <!-- QUICK ACTIONS DASHBOARD -->
+  <section class="menu">
+    <div class="sec-head">
+      <div class="sec-title"><span id="menuLabel"></span></div>
+      <div class="sec-status" id="readyBox">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+        <span id="readyText"></span><i class="rdot"></i>
+      </div>
+    </div>
+
+    <button id="launchBtn" class="launch launch-main" type="button">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 4 4.9"/>
+      </svg>
+      <i class="vsep" aria-hidden="true"></i>
+      <span id="launchText"></span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="quick-grid">
+      <button id="waBtn" class="launch launch-wa launch-sq" type="button">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/>
+          <path d="M9 9c.3 2 2 3.8 4.5 4.8l1.2-1.2 1.8.9c-.3 1-1.2 1.6-2.3 1.5C10.9 14.6 8.4 12 8 9.8c-.1-1 .5-1.8 1-1.8z"/>
+        </svg>
+        <i class="vsep" aria-hidden="true"></i>
+        <span id="waText"></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <button id="statsBtn" class="launch launch-stats launch-sq" type="button" aria-expanded="false">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <i class="vsep" aria-hidden="true"></i>
+        <span id="statsText"></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <section id="statsPanel" class="stats" hidden>
+      <div class="stats-head"><span id="statsSub"></span></div>
+      <form id="statsForm" class="stats-form">
+        <input id="statsUrl" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://www.tiktok.com/@user/video/...">
+        <div class="stats-buttons">
+          <button id="statsPaste" type="button" class="ghost"></button>
+          <button id="statsClear" type="button" class="ghost"></button>
+          <button id="statsScan" type="submit"></button>
+        </div>
+      </form>
+      <div id="statsMsg" class="stats-msg" role="status"></div>
+      <div id="statsResult" hidden></div>
+    </section>
+  </section>
+
+  <!-- KARTU: PENGATURAN UPLOADER -->
+  <section class="card" id="ctrlCard">
+    <div class="card-head" id="ctrlHead" role="button" tabindex="0" aria-expanded="true">
+      <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      <div class="card-title" id="ctrlTitle"></div>
+      <svg class="card-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+
+    <div class="vid-box" id="vidBox">
+      <div class="vid-head"><b>RE:HINE</b><span class="vid-state" id="vidState"></span></div>
+      <div class="vid-chips"><i data-k="avc">H.264/AVC</i><i data-k="hevc">H.265/HEVC</i><i data-k="mp4">MP4</i><i data-k="mov">MOV</i></div>
+      <div class="vid-prompt" id="vidPrompt"></div>
+      <button type="button" class="vid-btn vid-go" id="vidGo" hidden></button>
+      <button type="button" class="vid-btn vid-go" id="vidProc" hidden></button>
+      <button type="button" class="vid-btn" id="vidPick"></button>
+      <div class="vid-file" id="vidFile" hidden>
+        <span class="vid-name" id="vidName"></span><span class="vid-size" id="vidSize"></span>
+        <button type="button" class="vid-x" id="vidClear" aria-label="Clear">&#10005;</button>
+      </div>
+      <div class="vid-info" id="vidInfo" hidden></div>
+      <button type="button" class="vid-btn vid-cancel" id="vidCancel" hidden></button>
+      <div class="vid-log" id="vidLog" hidden></div>
+      <input type="file" id="vidInput" accept="video/mp4,video/quicktime,.mp4,.mov,video/*" hidden>
+    </div>
+
+    <div class="desc-sec" id="descSec">
+      <div class="mode-row desc-box" id="descRow">
+        <div class="desc-head">
+          <span class="fake-val desc-count"><b id="descCount">0</b>/2200</span>
+          <button id="descClear" class="mini" type="button"></button>
+        </div>
+        <textarea id="descText" rows="4" maxlength="2200" spellcheck="false"></textarea>
+        <div class="note-row">
+          <div class="tag-note" id="tagNote"></div>
+          <div class="icon-tgl" id="iconTgl">
+            <button id="captionBtn" class="itgl" type="button" aria-pressed="true"><b>@</b><span class="sr" id="captionText"></span></button>
+            <button id="tagsBtn" class="itgl" type="button" aria-pressed="false"><b>#</b><span class="sr" id="tagsText"></span></button>
+            <button id="uploaderBtn" class="itgl" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg><span class="sr" id="uploaderText"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body" id="modeBody">
+      <!-- MODE patch: hanya berlaku bila saklar UPLOADER menyala -->
+      <div class="mode-row" id="modeRow">
+        <div class="mode-label"><span id="modeLabel"></span> <span id="modeNeed"></span></div>
+        <div class="seg" id="modeSeg" role="radiogroup">
+          <button type="button" role="radio" data-mode="optimasi">Optimasi</button>
+          <button type="button" role="radio" data-mode="pro">Pro</button>
+        </div>
+        <div class="mode-desc" id="hint" role="note"></div>
+      </div>
+      <!-- Pro: pilihan mesin & persiapan (CompressBase) -->
+      <div class="mode-row" id="proRow" hidden>
+        <div class="pro-opts"><label><span class="lbl-row"><span id="proProcLbl"></span><button type="button" id="proCopy" class="mini-btn" hidden></button></span><select id="proProc"><option value="browser"></option><option value="termux"></option></select></label>
+        <label><span class="lbl-row"><span id="proEngLbl"></span><button type="button" id="proMax" class="mini-btn" aria-pressed="false">Max</button></span><select id="proEngine"><option value="obx">EDITING NEWS</option><option value="nova">Nova</option></select></label>
+        <label><span class="lbl-row"><span id="proPrepLbl"></span></span><select id="proPrep"></select></label></div>
+      </div>
+      <!-- Optimasi: peringatan (hanya tampil saat MODE = Optimasi) -->
+      <div class="mode-row beta-row" id="betaRow" hidden>
+        <div class="opt-warn" id="optWarn" role="alert"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="foot-wrap">
+  <footer class="foot"><em class="fl"></em><span>RE:HINE</span><i></i><span id="footText">OFFICIAL</span><em class="fl"></em></footer>
+  <div class="foot-row"><div class="foot-ver" id="footVer"></div>
+    <button id="platBtn" class="theme-btn plat-btn" type="button"><span id="platBtnText">T</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg></button></div>
+  </div>
+</main>
+<script src="../../content/isolated/video-meta.js"></script>
+<script src="../../core/i18n-errors.js"></script>
+<script src="../../core/verify.js"></script>
+<script src="../../core/pro.js"></script>
+<script src="../../core/modes.js"></script>
+<script src="../../background/desktop-rule.js"></script>
+<script src="../../background/handoff-db.js"></script>
+<script src="popup.js"></script>
+<script src="../../background/api-headers.js"></script>
+<script src="../shared/tiktok-stats.js"></script>
+<div class="modal" id="updateModal" role="dialog" aria-modal="true" aria-labelledby="updTitle" hidden>
+  <div class="modal-card">
+    <div class="modal-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+    </div>
+    <h2 class="modal-title" id="updTitle"></h2>
+    <p class="modal-ver" id="updVer"></p>
+    <p class="modal-notes" id="updNotes"></p>
+    <div class="modal-actions">
+      <button id="updBack" class="mbtn" type="button"></button>
+      <button id="updGo" class="mbtn primary" type="button"></button>
+    </div>
+  </div>
+</div>
+<div class="modal" id="qrModal" role="dialog" aria-modal="true" hidden>
+  <div class="modal-card qr-card">
+    <svg id="qrSvg" class="qr-svg" aria-label="QR"></svg>
+    <div class="modal-actions">
+      <button id="qrClose" class="mbtn" type="button"></button>
+      <button id="qrCopy" class="mbtn primary" type="button"></button>
+    </div>
+  </div>
+</div>
+<script src="../shared/updater.js"></script>
+<script src="../shared/qr-data.js"></script>
+<script src="../shared/qr.js"></script>
+</body>
+</html>

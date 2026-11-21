@@ -1,0 +1,115 @@
+{
+  "manifest_version": 3,
+  "name": "RE:HINE Uploader",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl0x3A9BvPLYeSssGkk3hH9yXIMBK/ShqYWy+Sa4eaHIdFT4zHWcdIAHGUrWy3K1aZ2ZSoQaM/skwSForeh0ML0RKDcQ+9q448hnpdhd2LKL1ak5Ezdfa9iOf5i4MMcN76i2zb9xUMmHhNf4p+vAy403ULbHabzRzP55sjuzUkK/FD4U8nju2vhudOTPCzonqUCLl2nmw+ma0nAOmTccpKAxPGG/vn9v3861btVVbTRLHu98EVC6wvjk2jizHNRIfa2Kh2MlWtQTm14eLdHBlzTCVqY1wTvRq9kKPZx+BHNcVXZwmqPZt86r2Pw2TohYSCfFunnEhnDPhF4FBWMInpwIDAQAB",
+  "version": "1.0.127",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "RE:HINE Uploader",
+    "default_popup": "ui/popup/popup.html"
+  },
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "clipboardRead",
+    "clipboardWrite",
+    "tabs",
+    "scripting",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://*.tiktok.com/*",
+    "https://cutefish.my.id/*",
+    "https://raw.githubusercontent.com/*",
+    "http://127.0.0.1/*",
+    "https://web.whatsapp.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/main-world/desktop-mode.js",
+        "content/main-world/caption-signature-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/main-world/publish-request-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/main-world/video-url-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "content/isolated/status-badge.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.tiktok.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "core/theme-vars.js",
+        "content/isolated/video-meta.js",
+        "content/isolated/upload-card.js"
+      ],
+      "css": [
+        "styles/upload-card.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "content/isolated/wa-status.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bg.mp4"
+      ],
+      "matches": [
+        "*://*.tiktok.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
